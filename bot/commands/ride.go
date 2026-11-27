@@ -59,9 +59,9 @@ func init() {
 						discord.NewTextDisplay(prompt),
 					).WithAccessory(discord.NewThumbnail(event.User().EffectiveAvatarURL())),
 					discord.NewActionRow(
-						discord.NewSuccessButton(btnGreen, "ride-buttonGreen-"+event.User().ID.String()).WithDisabled(user.Energy >= 1),
-						discord.NewDangerButton(btnRed, "ride-buttonRed-"+event.User().ID.String()).WithDisabled(user.Energy >= 1),
-						discord.NewSecondaryButton(btnBlack, "ride-buttonBlack-"+event.User().ID.String()).WithDisabled(user.Energy >= 2),
+						discord.NewSuccessButton(btnGreen, "ride-buttonGreen-"+event.User().ID.String()).WithDisabled(!(user.Energy >= 1)),
+						discord.NewDangerButton(btnRed, "ride-buttonRed-"+event.User().ID.String()).WithDisabled(!(user.Energy >= 1)),
+						discord.NewSecondaryButton(btnBlack, "ride-buttonBlack-"+event.User().ID.String()).WithDisabled(!(user.Energy >= 2)),
 					),
 				),
 			)
